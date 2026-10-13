@@ -42,7 +42,6 @@ export interface Stats {
   chat: number;
   staff: number;
   series: { date: string; contact: number; chat: number }[];
-  email_alerts: { enabled: boolean; recipients: string[] };
 }
 
 export const SOURCE_LABEL: Record<Source, string> = {

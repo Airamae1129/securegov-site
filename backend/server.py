@@ -3,7 +3,7 @@ import hashlib
 import hmac
 import secrets
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, APIRouter, BackgroundTasks, HTTPException
+from fastapi import FastAPI, APIRouter, HTTPException
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 import os
@@ -21,7 +21,6 @@ load_dotenv(ROOT_DIR / '.env')
 from lib.db import as_utc, client, db, ensure_indexes
 from lib.auth import seed_first_admin
 from lib.inbox import reply_out
-from lib.mailer import send_inquiry_alert
 from routers import admin as admin_routes
 from routers import auth as auth_routes
 
@@ -122,40 +121,21 @@ async def get_status_checks():
 # behind a staff login — visitors can only create them.
 
 @api_router.post("/demo-requests", response_model=DemoRequestResponse, status_code=201)
-async def create_demo_request(input: DemoRequestCreate, background: BackgroundTasks):
+async def create_demo_request(input: DemoRequestCreate):
     if not input.consent:
         raise HTTPException(status_code=422, detail="GDPR consent is required")
     req = DemoRequest(**input.model_dump(exclude={"consent"}))
     await db.demo_requests.insert_one(req.model_dump())
-    background.add_task(
-        send_inquiry_alert,
-        kind="demo request (contact form)",
-        name=req.name,
-        email=req.work_email,
-        fields=[
-            ("Company", req.company),
-            ("Company size", f"{req.company_size} staff"),
-            ("Frameworks", ", ".join(req.frameworks) or "None selected"),
-        ],
-    )
     return DemoRequestResponse(id=req.id, message="Thanks — the CyberHealth team will be in touch within one business day.")
 
 
 @api_router.post("/support-messages", response_model=SupportMessageResponse, status_code=201)
-async def create_support_message(input: SupportMessageCreate, background: BackgroundTasks):
+async def create_support_message(input: SupportMessageCreate):
     if not input.consent:
         raise HTTPException(status_code=422, detail="GDPR consent is required")
     token = secrets.token_urlsafe(24)
     msg = SupportMessage(**input.model_dump(exclude={"consent"}), thread_token_hash=_token_hash(token))
     await db.support_messages.insert_one(msg.model_dump())
-    background.add_task(
-        send_inquiry_alert,
-        kind="SecureGov Assistant chat message",
-        name=msg.name,
-        email=msg.email,
-        fields=[],
-        body=msg.message,
-    )
     first = msg.name.split()[0]
     return SupportMessageResponse(
         id=msg.id,

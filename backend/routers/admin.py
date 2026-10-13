@@ -11,7 +11,6 @@ from pymongo.errors import DuplicateKeyError
 from lib.auth import create_user, current_user, hash_password, public_user, require_admin
 from lib.db import as_utc, db
 from lib.inbox import SOURCES, collection, new_reply, to_message
-from lib import mailer
 
 router = APIRouter(prefix="/admin", tags=["admin"], dependencies=[Depends(current_user)])
 
@@ -47,7 +46,6 @@ async def stats():
         "chat": totals["chat"],
         "staff": await db.users.count_documents({"active": {"$ne": False}}),
         "series": [{"date": d.isoformat(), **series[d]} for d in days],
-        "email_alerts": {"enabled": mailer.enabled(), "recipients": mailer.recipients()},
     }
 
 
