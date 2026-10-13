@@ -31,6 +31,23 @@ services:
         sync: false # a strong password (10+ characters); change it later under My account
       - key: ADMIN_NAME
         value: Administrator
+      # Email alerts for new inquiries (optional — leave SMTP_HOST empty to switch them off).
+      - key: SMTP_HOST
+        sync: false # e.g. smtp.gmail.com, smtp.office365.com, smtp-relay.brevo.com
+      - key: SMTP_PORT
+        value: "587" # 465 with SMTP_SECURITY=ssl; some providers also accept 2525
+      - key: SMTP_SECURITY
+        value: starttls
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false # an app password, not your normal mailbox password
+      - key: SMTP_FROM
+        sync: false # e.g. SecureGov Website <alerts@yourdomain.ie>
+      - key: NOTIFY_EMAILS
+        sync: false # comma-separated inboxes that receive inquiry alerts
+      - key: ADMIN_URL
+        value: https://securegov-site.onrender.com/admin/messages # update to your site's address
 
   # Vite/React website, served as a static site
   - type: web

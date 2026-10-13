@@ -65,6 +65,26 @@ after that, admins add and manage staff under **Users**.
 Sessions are an httpOnly cookie that lasts 12 hours. Resetting a password or changing a
 role signs that person out everywhere.
 
+## Email alerts (SMTP)
+
+Every new contact-form demo request and every "talk to a person" chat message can be
+emailed to the team. Set these on the backend (see `backend/.env.example`):
+
+| Variable         | Example                                           |
+| ---------------- | ------------------------------------------------- |
+| `SMTP_HOST`      | `smtp.gmail.com` · `smtp.office365.com`           |
+| `SMTP_PORT`      | `587` (or `465` with `SMTP_SECURITY=ssl`)         |
+| `SMTP_SECURITY`  | `starttls` · `ssl` · `none`                       |
+| `SMTP_USER`      | the sending mailbox                               |
+| `SMTP_PASSWORD`  | an app password for that mailbox                  |
+| `SMTP_FROM`      | `SecureGov Website <alerts@yourdomain.ie>`        |
+| `NOTIFY_EMAILS`  | `sales@yourdomain.ie, info@yourdomain.ie`         |
+| `ADMIN_URL`      | link to `/admin/messages`, included in each alert |
+
+Alerts are sent in the background, so a mail problem never blocks or breaks the form —
+failures are only logged. Each alert's Reply-To is the visitor, so replying from your
+mail app answers them directly. The admin dashboard shows whether alerts are on.
+
 ## API
 
 | Method | Path                                   | Purpose                                         |

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { Inbox, FileText, MessageCircle, CheckCircle2, Users, ArrowRight } from "lucide-react";
+import { Inbox, FileText, MessageCircle, CheckCircle2, Users, ArrowRight, Mail } from "lucide-react";
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { adminApi } from "@/lib/adminApi";
 
@@ -31,6 +31,21 @@ export function DashboardPage() {
 
   return (
     <div className="space-y-6">
+      {s && (
+        <p
+          data-testid="admin-email-alerts"
+          className={`flex flex-wrap items-center gap-2 rounded-xl border px-4 py-3 text-sm ${
+            s.email_alerts.enabled ? "border-sg-green/20 bg-sg-green-bg text-sg-green" : "border-sg-amber/25 bg-sg-amber-bg text-sg-amber"
+          }`}
+        >
+          <Mail className="h-4 w-4 shrink-0" />
+          {s.email_alerts.enabled ? (
+            <>Email alerts are on — new inquiries are emailed to <strong>{s.email_alerts.recipients.join(", ")}</strong>.</>
+          ) : (
+            <>Email alerts are off. Set the SMTP settings (SMTP_HOST, SMTP_FROM, NOTIFY_EMAILS…) on the server to get an email for every new inquiry.</>
+          )}
+        </p>
+      )}
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-5">
         {cards.map((c) => (
           <div key={c.label} className="rounded-2xl border border-[#E9E3F5] bg-white p-5 shadow-[0_6px_24px_rgba(34,10,67,0.04)]" data-testid={`admin-stat-${c.label.toLowerCase().replace(/\s+/g, "-")}`}>
