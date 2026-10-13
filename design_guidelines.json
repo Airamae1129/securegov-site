@@ -1,0 +1,283 @@
+{
+  "theme": "hybrid-dark-command",
+  "archetype": "THE PERFORMANCE PRO / HIGH-TECH SOVEREIGNTY GRC",
+  "product_identity": {
+    "name": "SecureGov",
+    "by": "CyberHealth (Ireland)",
+    "tagline": "Continuous AI Cyber Governance, Risk & EU Compliance for High-Growth Enterprises",
+    "target_audience": "European SMEs, Fintechs, Healthtechs, and AI Startups navigating NIS2, DORA, GDPR, ISO 27001, and EU AI Act",
+    "vibe": "Awwwards-level kinetic precision, deep aubergine command-center depth, crisp lavender-white canvas contrast, authoritative European sovereign engineering."
+  },
+  "typography": {
+    "font_family_heading": "Outfit, 'Outfit Variable', -apple-system, sans-serif",
+    "font_family_body": "Inter, 'Inter Variable', system-ui, sans-serif",
+    "font_family_mono": "JetBrains Mono, 'JetBrains Mono Variable', monospace",
+    "import_statement": "@import \"@fontsource-variable/outfit\";\n@import \"@fontsource-variable/inter\";\n@import \"@fontsource-variable/jetbrains-mono\";",
+    "scale_px": {
+      "display": 60,
+      "h1": 48,
+      "h2": 36,
+      "h3": 24,
+      "body": 16,
+      "caption": 14
+    },
+    "rules": {
+      "headings": "font-black tracking-tight leading-[1.08] text-balance",
+      "subheadings": "font-medium text-lg md:text-xl text-[var(--sg-violet-300)] tracking-normal leading-relaxed",
+      "overlines": "text-xs font-mono uppercase tracking-[0.22em] text-[var(--sg-violet-400)]",
+      "body": "text-base leading-relaxed text-[var(--sg-text)]",
+      "mono_data": "font-mono text-sm tracking-tight"
+    }
+  },
+  "colors": {
+    "tokens": {
+      "--sg-ink-950": "#12051F",
+      "--sg-ink-900": "#220A43",
+      "--sg-primary": "#4C1B8C",
+      "--sg-primary-600": "#5E30A3",
+      "--sg-violet-400": "#A98BF0",
+      "--sg-violet-300": "#CFC4E4",
+      "--sg-tint": "#EEE9FF",
+      "--sg-canvas": "#FAF8FC",
+      "--sg-surface-card": "#FFFFFF",
+      "--sg-text": "#1B1523",
+      "--sg-muted": "#6E608A",
+      "--sg-on-dark-text": "#FFFFFF",
+      "--sg-on-dark-muted": "#CFC4E4",
+      "--sg-status-amber": "#B7791F",
+      "--sg-status-amber-bg": "#FEF3C7",
+      "--sg-status-green": "#15803D",
+      "--sg-status-green-bg": "#DCFCE7",
+      "--sg-status-red": "#DC2626",
+      "--sg-status-red-bg": "#FEE2E2",
+      "--sg-accent-electric": "#0A84FF",
+      "--sg-border-dark": "rgba(169, 139, 240, 0.18)",
+      "--sg-border-light": "rgba(76, 27, 140, 0.12)"
+    },
+    "signature_gradient": "linear-gradient(135deg, #12051F 0%, #220A43 40%, #4C1B8C 75%, #7C4DDB 100%)",
+    "mesh_gradient": "radial-gradient(circle at 50% 20%, rgba(124, 77, 219, 0.28) 0%, rgba(34, 10, 67, 0.8) 60%, #12051F 100%)",
+    "surfaces": [
+      {
+        "name": "page_dark_root",
+        "kind": "solid",
+        "bg": "#12051F",
+        "on_bg": "#FFFFFF",
+        "on_bg_muted": "#CFC4E4",
+        "roles": {
+          "link": "#A98BF0",
+          "accent": "#0A84FF",
+          "error": "#F87171",
+          "success": "#4ADE80",
+          "warning": "#FBBF24"
+        }
+      },
+      {
+        "name": "hero_dark_immersive",
+        "kind": "gradient",
+        "contrast_against": "#1B072E",
+        "guarantee": "scrim: linear-gradient(180deg, rgba(18,5,31,0.95) 0%, rgba(34,10,67,0.85) 60%, rgba(18,5,31,0.98) 100%) with 3D canvas background depth",
+        "on_bg": "#FFFFFF",
+        "on_bg_muted": "#CFC4E4",
+        "roles": {
+          "link": "#A98BF0",
+          "accent": "#0A84FF",
+          "error": "#F87171",
+          "success": "#4ADE80"
+        }
+      },
+      {
+        "name": "sticky_nav_glass",
+        "kind": "glass",
+        "contrast_against": "#170729",
+        "guarantee": "backdrop-blur-2xl bg-[#12051F]/80 border-b border-[#A98BF0]/20",
+        "on_bg": "#FFFFFF",
+        "on_bg_muted": "#CFC4E4",
+        "roles": {
+          "link": "#FFFFFF",
+          "accent": "#A98BF0"
+        }
+      },
+      {
+        "name": "light_canvas_body",
+        "kind": "solid",
+        "bg": "#FAF8FC",
+        "on_bg": "#1B1523",
+        "on_bg_muted": "#6E608A",
+        "roles": {
+          "link": "#4C1B8C",
+          "accent": "#0A84FF",
+          "error": "#DC2626",
+          "success": "#15803D",
+          "warning": "#B7791F"
+        }
+      },
+      {
+        "name": "light_card_elevated",
+        "kind": "solid",
+        "bg": "#FFFFFF",
+        "on_bg": "#1B1523",
+        "on_bg_muted": "#6E608A",
+        "roles": {
+          "link": "#4C1B8C",
+          "accent": "#0A84FF",
+          "error": "#DC2626",
+          "success": "#15803D"
+        }
+      },
+      {
+        "name": "dark_sidebar_app_replica",
+        "kind": "solid",
+        "bg": "#220A43",
+        "on_bg": "#FFFFFF",
+        "on_bg_muted": "#CFC4E4",
+        "roles": {
+          "link": "#A98BF0",
+          "accent": "#0A84FF",
+          "error": "#F87171",
+          "success": "#4ADE80"
+        }
+      },
+      {
+        "name": "badge_status_green",
+        "kind": "solid",
+        "bg": "#DCFCE7",
+        "on_bg": "#15803D",
+        "on_bg_muted": "#166534"
+      },
+      {
+        "name": "badge_status_amber",
+        "kind": "solid",
+        "bg": "#FEF3C7",
+        "on_bg": "#92400E",
+        "on_bg_muted": "#78350F"
+      },
+      {
+        "name": "badge_status_red",
+        "kind": "solid",
+        "bg": "#FEE2E2",
+        "on_bg": "#991B1B",
+        "on_bg_muted": "#7F1D1D"
+      },
+      {
+        "name": "badge_status_purple",
+        "kind": "solid",
+        "bg": "#EEE9FF",
+        "on_bg": "#4C1B8C",
+        "on_bg_muted": "#5E30A3"
+      }
+    ],
+    "accent": "#4C1B8C",
+    "on_accent": "#FFFFFF"
+  },
+  "entry_surfaces": {
+    "/": "split kinetic hero — Irish sovereign AI positioning & high-impact primary CTAs on left with floating glass stat counters; interactive 3D WebGL cyber shield + binary orbit ring on right, transitioning into an editorial regulatory marquee"
+  },
+  "structure_and_sections": [
+    {
+      "section_id": "nav_header",
+      "component": "src/components/landing/HeaderNav.tsx",
+      "type": "Crystal Glass Sticky Header",
+      "content": "Wordmark 'SECUREGOV' in bold uppercase with wireframe shield icon, links: Platform, Regulations, Architecture, Product Tour, Pricing, Trust Center. CTAs: 'Watch 2-Min Tour' & 'Request Live Demo'."
+    },
+    {
+      "section_id": "hero_kinetic",
+      "component": "src/components/landing/HeroSection.tsx",
+      "type": "Awwwards 3D WebGL Scene + Staggered Kinetic Typography",
+      "content": "Badge 'EU SOVEREIGN GRC PLATFORM • DUBLIN & BRUSSELS CLOUDS', Headline 'Autonomous Cyber Governance For The Regulatory Age.', 3D rotating shield with keyhole and particle halo, 3 glass orbiting cards (Audit-Ready: 100%, 14 Frameworks Unified, 0 Human Data Scraping)."
+    },
+    {
+      "section_id": "framework_marquee",
+      "component": "src/components/landing/FrameworkMarquee.tsx",
+      "type": "Slow Editorial Ribbon Marquee",
+      "content": "Unified compliance for: NIS2 Directive, EU AI Act (2024/1689), DORA Regulation, GDPR Art 32/35, ISO/IEC 27001:2022, ISO/IEC 42001 (AI Systems), SOC 2 Type II, TISAX."
+    },
+    {
+      "section_id": "scroll_story_consolidation",
+      "component": "src/components/landing/ProblemToConsolidationStory.tsx",
+      "type": "Interactive Regulation Consolidation Scroll Stage",
+      "content": "Interactive stage showing 6 fragmented silo badges (Spreadsheets, PDFs, Consultant Scopes, Ticket Hell) colliding and merging into one glowing SecureGov sovereign defense shield."
+    },
+    {
+      "section_id": "solution_hub",
+      "component": "src/components/landing/SolutionHub.tsx",
+      "type": "Orb Core with SVG Pulse Connectors",
+      "content": "Central Autonomous AI Engine connecting to 5 modular pills: 1. Continuous Control Testing, 2. Dynamic Risk Quant, 3. Evidence Auto-Harvester, 4. Audit-Proof Policy Forge, 5. Cross-Framework Graph Sync."
+    },
+    {
+      "section_id": "capabilities_bento",
+      "component": "src/components/landing/CapabilitiesBento.tsx",
+      "type": "Tetris Bento Grid (7 High-Density Capability Cards)",
+      "content": "1. Multi-Framework Telemetry Matrix (Large), 2. Zero-Trust Evidence Vault, 3. AI Copilot (Plain European English), 4. Vendor Risk Radar, 5. Automated Board Reporting, 6. Whistleblower & Incident Triage, 7. Real-Time NIS2 Penalty Estimator."
+    },
+    {
+      "section_id": "how_it_works_timeline",
+      "component": "src/components/landing/HowItWorksTimeline.tsx",
+      "type": "5-Step Illuminated Cyber Timeline",
+      "content": "Step 1: Connect Tech Stack (15 min) → Step 2: Auto-Discover Controls & Data Flows → Step 3: Map Against EU Directives → Step 4: AI Remediation & Actionable Fixes → Step 5: Continuous Audit Export."
+    },
+    {
+      "section_id": "guided_product_tour",
+      "component": "src/components/landing/ProductTourAppShell.tsx",
+      "type": "Interactive Live App Shell Simulator",
+      "content": "Faithful replica of live product: Aubergine sidebar (#220A43), Lavender canvas (#FAF8FC), top navigation with status indicators, 8 interactive screens (Dashboard, Continuous Monitoring, Live Alerts, Policy Forge, Risk Registry, Evidence Vault, Cross-Mapping Matrix, Scripted AI Chat Assistant)."
+    },
+    {
+      "section_id": "use_cases_flip_cards",
+      "component": "src/components/landing/UseCasesFlipCards.tsx",
+      "type": "3D Flip Cards with Deep Tactical Insights",
+      "content": "1. European FinTech scaling under DORA, 2. Healthcare SaaS managing MedTech GDPR, 3. AI Dev Studio complying with EU AI Act High-Risk rules, 4. Critical Infrastructure SME under NIS2."
+    },
+    {
+      "section_id": "security_trust_vault",
+      "component": "src/components/landing/SecurityTrustSection.tsx",
+      "type": "Dark Sovereign Vault Section",
+      "content": "ISO 27001 & ISO 42001 certified, Frankfurt & Dublin AWS GovCloud isolation, zero customer LLM training, end-to-end cryptographic hashing of audit logs."
+    },
+    {
+      "section_id": "pricing_glass_tier",
+      "component": "src/components/landing/PricingSection.tsx",
+      "type": "3-Tier Glassmorphic Selector with Euro (€) Toggle",
+      "content": "Starter Sovereign (€590/mo), Growth Enterprise (€1,450/mo), Custom Sovereign Federation (Bespoke) with interactive feature checklist."
+    },
+    {
+      "section_id": "demo_cta_form",
+      "component": "src/components/landing/DemoRequestModalOrSection.tsx",
+      "type": "High-Conversion Form with Instant Score Calculator",
+      "content": "Interactive 3-question audit readiness calculator + instant VIP demo request form."
+    },
+    {
+      "section_id": "coming_soon_roadmap",
+      "component": "src/components/landing/RoadmapTimeline.tsx",
+      "type": "Quarterly Innovation Trajectory (Q3 2026 - Q2 2027)",
+      "content": "Q3 2026: Multi-Tenant Whistleblower Node, Q4 2026: Autonomous Penetration Simulation, Q1 2027: EU Quantum-Resistant Vaults."
+    },
+    {
+      "section_id": "footer",
+      "component": "src/components/landing/Footer.tsx",
+      "type": "Swiss Monospace Editorial Footer",
+      "content": "Large display brand mark, EU legal certifications, Irish incorporation details, live system status beacon (99.99% Operational), newsletter, legal links."
+    }
+  ],
+  "motion_and_interactions": {
+    "engine": "Framer Motion (motion/react bundled) + Lenis Smooth Scroll + Three.js Hero Canvas fallback",
+    "techniques": [
+      "Staggered entrance reveals on scroll with subtle Y-axis elevation and opacity spring",
+      "Interactive 3D particle canvas orbiting the signature purple keyhole shield",
+      "Interactive tabs with smooth layout-spring transitions in the Live App Shell",
+      "Micro-hover glow highlights using radial-gradient overlays following cursor coordinates",
+      "Reduced motion fallback: graceful static rendering with immediate opacity transitions"
+    ]
+  },
+  "media_and_assets": {
+    "unsplash_team_image": "https://images.unsplash.com/photo-1758873268631-fa944fc5cad2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA4Mzl8MHwxfHNlYXJjaHwxfHxjeWJlcnNlY3VyaXR5JTIwdGVjaG5vbG9neSUyMHRlYW0lMjBwb3J0cmFpdHxlbnwwfHx8fDE3OTE0Njk5MzJ8MA&ixlib=rb-4.1.0&q=85",
+    "unsplash_engineer_image": "https://images.unsplash.com/photo-1763128516808-785e80c1dd68?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA4Mzl8MHwxfHNlYXJjaHwzfHxjeWJlcnNlY3VyaXR5JTIwdGVjaG5vbG9neSUyMHRlYW0lMjBwb3J0cmFpdHxlbnwwfHx8fDE3OTE0Njk5MzJ8MA&ixlib=rb-4.1.0&q=85"
+  },
+  "instructions_to_main_agent": [
+    "1. Replace index.css theme tokens with the provided --sg-* colors and @fontsource-variable imports.",
+    "2. Build the app as a modular single-page landing site in frontend/src/pages/Home.tsx with rich, standalone sub-components in frontend/src/components/landing/.",
+    "3. Implement the 3D Hero Shield using Three.js Canvas / WebGL or Canvas2D fallback with rotating binary rings, glowing ambient lights, and floating interactive glass metric pills.",
+    "4. Ensure the Guided Product Tour simulator is thoroughly interactive: clicking between the 8 sidebar tabs (Dashboard, Monitoring, Alerts, Policies, Risks, Evidence, Frameworks, AI Chat) updates the canvas view seamlessly.",
+    "5. Provide mock dynamic state in the AI Chat demo allowing users to click sample prompt chips ('Assess our NIS2 exposure', 'Generate DORA Incident Report', 'Verify ISO 42001 Model Registry') and see streaming responses.",
+    "6. Include data-testid on every interactive button, tab, flip-card trigger, form input, and CTA."
+  ]
+}

@@ -1,0 +1,53 @@
+# Render Blueprint: deploys the API and the website together.
+# Render dashboard → New → Blueprint → pick this repo. You'll be asked for MONGO_URL once.
+services:
+  # FastAPI backend (demo requests + support chat messages)
+  - type: web
+    name: securegov-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn server:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.10
+      - key: MONGO_URL
+        sync: false # paste your MongoDB Atlas connection string when prompted
+      - key: DB_NAME
+        value: securegov
+      - key: CORS_ORIGINS
+        value: "*"
+      # Admin side (/admin): signs the staff session cookie; Render generates a random value once.
+      - key: JWT_SECRET
+        generateValue: true
+      - key: COOKIE_SECURE
+        value: "true"
+      # First administrator, created on startup only while no staff accounts exist.
+      - key: ADMIN_EMAIL
+        sync: false # your admin sign-in email
+      - key: ADMIN_PASSWORD
+        sync: false # a strong password (10+ characters); change it later under My account
+      - key: ADMIN_NAME
+        value: Administrator
+
+  # Vite/React website, served as a static site
+  - type: web
+    name: securegov-site
+    runtime: static
+    buildCommand: cd frontend && npm install --no-audit --no-fund && npm run build
+    staticPublishPath: frontend/dist
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+    routes:
+      # The site calls relative /api/* — forward those to the API service.
+      # If Render gives the API a different URL (e.g. securegov-api-abcd.onrender.com), update this line.
+      - type: rewrite
+        source: /api/*
+        destination: https://securegov-api.onrender.com/api/*
+      # Single-page app: every other path serves index.html
+      - type: rewrite
+        source: /*
+        destination: /index.html
